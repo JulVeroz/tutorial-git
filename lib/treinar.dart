@@ -1,8 +1,6 @@
 import 'dart:io';
 
 void main() {
-  print('Registro de 3 Médicos - Centro Médico');
-
   // [<dado do tipo inteiro, dado do tipo String>]
   Map<int, String> medicos = {};
   Map<String, int> dataNascimento = {};
