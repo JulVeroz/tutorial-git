@@ -20,13 +20,11 @@ class Camiseta {
   // Método de classe (Que são funções dentro de classes).
   static String recuperarNome() => nome;
 
-  /* 1 */ String get cor {
-    return _cor ?? 'Sem cor definida';
-  }
+  /* 1 */ String get pegarCor => _cor ?? 'Não há cor';
 
   // usamos o set para modificar o que precisamos, mas também podemos
   // usar funções normais sem citar get e set.
-  /* 1 */ set cor(String novacor) {
+  /* 1 */ set pegarCor(String novacor) {
     if (novacor.isNotEmpty) {
       _cor = novacor;
     }
