@@ -1,15 +1,6 @@
-class Tenis {
-  String? marca;
-  String? cor;
-  double? preco;
+class Pessoa {
+  String nome;
+  int idade;
 
-  String retorneMarca(String? marca) => marca ?? 'Tenis sem marca';
-
-  double? retornePreco(double? preco) {
-    return preco;
-  }
-
-  String? retorneCor(String? cor) {
-    return cor;
-  }
+  Pessoa(this.nome, this.idade);
 }

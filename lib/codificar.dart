@@ -60,4 +60,6 @@ void main() {
       moradoresSP++;
     }
   }
+
+  print('Quantidade de pacientes em SP: $moradoresSP');
 }
