@@ -1,37 +1,63 @@
-import 'dart:io';
-
-import 'package:projetodart/treinar.dart';
-
 void main() {
-  var tenisObjeto = Tenis();
+  //! Detalhe sobre a String
+  //! A String é composta por 4 campos (Nome|Idade|Profissão|Estado onde mora)
+  final pacientes = [
+    'Rodrigo Rahman|35|desenvolvedor|SP',
+    'Manoel Silva|12|estudante|MG',
+    'Joaquim Rahman|18|estudante|SP',
+    'Fernando Verne|35|estudante|MG',
+    'Gustavo Silva|40|Desenvolvedor|MG',
+    'Sandra Silva|40|Desenvolvedor|MG',
+    'Regina Verne|35|dentista|MG',
+    'João Rahman|55|jornalista|SP',
+  ];
 
-  print('Analisador de Tênis.');
+  //! 1 - Apresente os pacientes com mais de 20 anos e print o nome deles
 
-  while (true) {
-    stdout.write('Marca do tênis: ');
-    var marcaTenis = stdin.readLineSync() as String;
-    tenisObjeto.marca = marcaTenis;
+  print('Pacientes com mais de 20 anos:\n');
+  for (final paciente in pacientes) {
+    var dados = paciente.split('|');
+    if ((int.parse(dados[1]) > 20)) {
+      print('Nome: ${dados[0]}\n Idade: ${dados[1]}\n');
+    }
+  }
 
-    stdout.write('Cor do tênis: ');
-    var corTenis = stdin.readLineSync() as String;
-    tenisObjeto.cor = corTenis;
+  //! 2 - Apresente quantos pacientes existem para cada profissão (desenvolvedor, estudante, dentista, jornalista)
 
-    stdout.write('Preço do tênis: ');
-    var precoTenis = double.parse(stdin.readLineSync()!);
-    tenisObjeto.preco = precoTenis;
+  var desenvolvedor = 0;
+  var estudante = 0;
+  var dentista = 0;
+  var jornalista = 0;
 
-    print('Características:\n'
-        'Marca: ${tenisObjeto.retorneMarca(marcaTenis)}\n'
-        'Cor: ${tenisObjeto.retorneCor(corTenis)}\n'
-        'Preço: ${tenisObjeto.retornePreco(precoTenis)}');
+  print('Quantidade de pacientes nas profissões:\n');
 
-    stdout.write('Deseja analisar outro tênis? S ou N: ');
-    var botaoContinuar = stdin.readLineSync() as String;
+  for (var profissao in pacientes) {
+    var dados = profissao.split('|');
 
-    if (botaoContinuar.toLowerCase() == 's') {
-      continue;
-    } else {
-      break;
+    if (dados[2].toLowerCase() == 'desenvolvedor') {
+      desenvolvedor++;
+    } else if (dados[2].toLowerCase() == 'estudante') {
+      estudante++;
+    } else if (dados[2].toLowerCase() == 'dentista') {
+      dentista++;
+    } else if (dados[2].toLowerCase() == 'jornalista') {
+      jornalista++;
+    }
+  }
+
+  print('Desenvolvedores: $desenvolvedor\n'
+      'Estudantes: $estudante\n'
+      'Dentistas: $dentista\n'
+      'Jornalistas: $jornalista\n');
+
+  //! 3 - Apresente a quantidade de pacientes que moram em SP
+
+  var moradoresSP = 0;
+
+  for (var sp in pacientes) {
+    var dados = sp.split('|');
+    if (dados[3] == 'SP') {
+      moradoresSP++;
     }
   }
 }
